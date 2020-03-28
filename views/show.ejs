@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+<div class="container">
+	<a href="/blogs" class="btn btn-outline-primary btn-sm ml-auto" style="float: right">Back</a>
+	<h3 class="text-center m-4" style="width: 100%">
+		<%= blog.title %> Details
+	</h3>
+	<figcaption class="figure-caption m-2">Created on <%= blog.created %> by Ramesh Vegoti</figcaption>
+	
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="card">
+				<img src="<%= blog.image %>">
+				
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="card">
+				<div class="card-body">
+					<p><%= blog.title %></p>
+					<p><%= blog.body %></p>
+					<a href="/blogs/<%=blog._id%>/edit" class="btn btn-success btn-sm">Edit</a>
+			<form  style="display: inline" action="/blogs/<%=blog._id%>?_method=DELETE" method="POST">
+	<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+			</form>		
+			
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include('partials/footer') %>

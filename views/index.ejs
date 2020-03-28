@@ -1,0 +1,52 @@
+<%- include('partials/header') %>
+
+<% if (blogs.length <= 0) { %>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="alert alert-success" style='margin: 0 auto'>
+				No Blog is available in the Database.....
+			</div>
+		</div>
+	</div>
+
+<% } else { %>
+
+<div class="container">
+	
+	<h2 class="display-3 text-center" style="font-size: 1.5rem">Blogs</h2>
+	<div class="row">
+			<div class="col-lg-12">
+				<table class="table table-striped table-bordered">
+					<thead class="thead-light">
+						<tr>
+							<td>SlNo</td>
+							<td>Title</td>
+							<td>Image</td>
+							<td>Body</td>
+							<!-- <td>Created on</td> -->
+							<td colspan='3'>Options</td>
+						</tr>
+					</thead>
+					<tbody>
+					<% blogs.forEach(function(blog,index){ %>
+						<tr>
+							<td><%= index +1 %></td>
+							<td><%= blog.title %></td>
+							<td><img src="<%=blog.image%>" width="100" height="100"></td>
+							<td><%- blog.body %></td>
+							<!-- <td><%= blog.created %></td> -->
+							<td><a href="/blogs/<%= blog._id %>" class="btn btn-primary btn-sm">Show</a></td>
+							<td><a href="/blogs/<%= blog._id %>/edit" class="btn btn-success btn-sm">Edit</a></td>
+							<td><form  style="display: inline" action="/blogs/<%=blog._id%>?_method=DELETE" method="POST">
+	<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+			</form></td>
+							
+						</tr>
+					<% }) %>
+					</tbody>
+				</table>
+			</div>
+	</div>
+</div>
+<% } %>
+<%- include('partials/footer') %>
