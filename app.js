@@ -15,10 +15,12 @@ var blogRoutes = require('./routes/blogs')
 var authRoutes = require('./routes/auth')
 // var passportFile = require('./routes/passportfile');
 
-
 var app = express();
 
-mongoose.connect('mongodb://localhost:27017/rest',{useNewUrlParser: true});
+
+
+// mongoose.connect('mongodb://localhost:27017/rest',{useNewUrlParser: true});
+mongoose.connect("mongodb://ramesh:ramesh786@ds135217.mlab.com:35217/crud", {useNewUrlParser: true});
 
 //APP CONFIG
 app.set('view engine','ejs');
