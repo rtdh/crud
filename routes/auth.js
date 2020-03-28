@@ -48,7 +48,7 @@ app.post('/login', passport.authenticate('local',{
 app.get('/logout', function(req, res){
 	req.logout();
 	req.flash('success','You Logged out ...')
-	res.redirect('/dashboard')
+	res.redirect('/')
 })
 
 // forgot password

@@ -25,14 +25,11 @@ cloudinary.config({
   api_secret: 'h2wOcQu1YozmkvtyzsD6cvRfVMU'
 });
 
-
-
+// app.get('/', function(req,res){
+// 	res.redirect('/dashboard');
+// })
 
 app.get('/', function(req,res){
-	res.redirect('/dashboard');
-})
-
-app.get('/dashboard', function(req,res){
 	res.render('dashboard');	
 })
 
