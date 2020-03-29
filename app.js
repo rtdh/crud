@@ -13,6 +13,7 @@ var nodemailer = require('nodemailer');
 
 var blogRoutes = require('./routes/blogs')
 var authRoutes = require('./routes/auth')
+var fileuploadRoutes = require('./routes/fileupload')
 // var passportFile = require('./routes/passportfile');
 
 var app = express();
@@ -22,7 +23,7 @@ var app = express();
 // mongoose.connect('mongodb://localhost:27017/rest',{useNewUrlParser: true});
 // mongoose.connect("mongodb://ramesh:ramesh786@ds135217.mlab.com:35217/crud", {useNewUrlParser: true});
 
-mongoose.connect('mongodb+srv://ramesh:ramesh786@myccluster-cszmh.mongodb.net/test?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://ramesh:ramesh786@myccluster-cszmh.mongodb.net/test?retryWrites=true&w=majority', {useUnifiedTopology: true, useNewUrlParser: true})
 
 //APP CONFIG
 app.set('view engine','ejs');
@@ -57,7 +58,7 @@ app.use(function(req, res, next){
 
 app.use(blogRoutes);
 app.use(authRoutes);
-
+app.use(fileuploadRoutes);
 
 
 app.listen(process.env.PORT || 3000, function(){
