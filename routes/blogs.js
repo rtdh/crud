@@ -60,7 +60,7 @@ app.post('/blogs', middleware.isLoggedIn, upload.single('image'), function(req, 
   // add cloudinary url for the image to the blog object under image property
   req.body.blog.image = result.secure_url;
   req.body.blog.imageId = result.public_id;
-	console.log(result, err)	
+	// console.log(result, err)	
   // add author to blog
   req.body.blog.author = {
     id: req.user._id,

@@ -20,7 +20,9 @@ var app = express();
 
 
 // mongoose.connect('mongodb://localhost:27017/rest',{useNewUrlParser: true});
-mongoose.connect("mongodb://ramesh:ramesh786@ds135217.mlab.com:35217/crud", {useNewUrlParser: true});
+// mongoose.connect("mongodb://ramesh:ramesh786@ds135217.mlab.com:35217/crud", {useNewUrlParser: true});
+
+mongoose.connect('mongodb+srv://ramesh:ramesh786@myccluster-cszmh.mongodb.net/test?retryWrites=true&w=majority')
 
 //APP CONFIG
 app.set('view engine','ejs');
